@@ -1,0 +1,5 @@
+# Ignora arquivos desnecessários no deploy
+.git
+.gitignore
+*.md
+.vercel/

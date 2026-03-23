@@ -1,0 +1,66 @@
+========================================
+COMO ADICIONAR FOTOS DOS EMPREENDIMENTOS
+========================================
+
+1. COLOQUE AS FOTOS NESTA PASTA
+   assets/empreendimentos/
+
+2. NOMEIE PELO ID DO EMPREENDIMENTO
+   Use o número correspondente ao empreendimento:
+
+   ID  | Empreendimento
+   ----|----------------------------------
+   1   | Barra Funda 900
+   2   | Barra Funda 930
+   3   | Mérito Lapa
+   4   | Mérito Barra Funda
+   5   | Atmosfera Jaguaré
+   6   | Dez Butantã
+   7   | Singular Butantã
+   8   | Cidade Lapa · Água Branca
+   9   | Cidade Lapa · Pompéia
+   10  | Cidade Lapa · Santa Marina
+   11  | Astro Santa Marina
+   12  | Arte Santa Marina
+   13  | Galleria Santa Marina
+   14  | Supreme Vila Romana
+   15  | Cidade Villa-Lobos · Melodia
+   16  | Cidade Villa-Lobos · Maestro
+   17  | Cidade Villa-Lobos · Soprano
+   18  | Cidade Villa-Lobos · Sonata
+   19  | Mirae Bom Retiro
+   20  | Marco Freguesia
+   21  | 360° Park View
+   22  | Alto São Domingos
+   23  | Dez Limão
+   24  | Cidade Parque Guarapiranga
+   25  | Parque das Nações · Laguna
+   26  | Alto Chácara Santo Antônio
+   27  | Lyne Campo Limpo
+   28  | Praça Santo Antônio
+   29  | Novo Mundo Carrão
+   30  | Modern Mooca
+   31  | Dez Belenzinho
+   32  | Mérito Belenzinho
+   33  | Cidade Mooca · Navona
+   34  | Mérito Guarulhos
+   35  | Next Guarulhos
+
+3. FORMATO DOS ARQUIVOS
+   - Nome: 1.jpg, 2.jpg, 3.jpg...
+   - Se usar .png ou .webp, edite script.js linha 10:
+     const EXTENSAO_FOTO = '.png';
+   - Tamanho recomendado: 400x250px
+
+4. EXEMPLO
+   Para o Barra Funda 900 (id 1), adicione:
+   assets/empreendimentos/1.jpg
+
+   Para o Mérito Lapa (id 3), adicione:
+   assets/empreendimentos/3.jpg
+
+5. SE NÃO TIVER A FOTO
+   O site usa uma imagem placeholder automaticamente.
+   Adicione a foto quando tiver - ela aparecerá na hora.
+
+========================================
