@@ -1,6 +1,6 @@
 {
-  "name": "imoveis-cs",
   "framework": null,
   "buildCommand": null,
-  "outputDirectory": "public"
+  "outputDirectory": null,
+  "installCommand": null
 }
