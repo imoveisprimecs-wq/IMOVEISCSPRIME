@@ -75,7 +75,7 @@ function renderizarCard(e) {
     const badgeText = e.status === 'obras' ? 'Em Obras' : 'Lançamento';
     const zonaNome = getZonaNome(e.regiao);
     const amenitiesHtml = e.amenities.slice(0, 4).map(a => `<span>${a}</span>`).join('');
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent('Tenho interesse no empreendimento ' + e.nome)}`;
+    const whatsappUrl = `https://wa.me/5511981445007?text=${encodeURIComponent('Olá Camis! Vim pelo site IMOVEIS CS. Interesse no empreendimento: ' + e.nome + '. Quero pré-análise online (resposta em poucas horas) e depois visita ao decorado para escolher a unidade.')}`;
     const imgUrl = e.imagem || getImagemEmpreendimento(e.id);
     return `
         <article class="empreendimento-card" data-regiao="${e.regiao}" data-dorms="${Array.isArray(e.dormitorios) ? Math.min(...e.dormitorios) : e.dormitorios}">
@@ -159,22 +159,127 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnBuscar) btnBuscar.onclick = filtrarImoveis;
 });
 
-// Simulador
-document.getElementById('form-simulador').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const renda = parseInt(document.getElementById('renda').value);
-    const fgts = parseInt(document.getElementById('fgts').value);
-    const financiamento = Math.min(renda * 30, 250000) + fgts;
-    const subsidio = Math.floor(financiamento * 0.15);
-    const parcela = Math.floor((financiamento - subsidio) / 360);
-    
-    document.getElementById('result-financiamento').textContent = `R$ ${financiamento.toLocaleString('pt-BR')}`;
-    document.getElementById('result-subsidio').textContent = `R$ ${subsidio.toLocaleString('pt-BR')}`;
-    document.getElementById('result-parcela').textContent = `R$ ${parcela.toLocaleString('pt-BR')}/mês`;
-    document.getElementById('result-juros').textContent = '8,16% a.a.';
-    
-    document.getElementById('modal-simulacao').classList.add('active');
-});
+// Simulador — fluxo em etapas
+function parseBRLDigits(str) {
+    const n = parseInt(String(str || '').replace(/\D/g, ''), 10);
+    return Number.isFinite(n) ? n : 0;
+}
+
+function initSimuladorWizard() {
+    const form = document.getElementById('form-simulador');
+    if (!form) return;
+
+    let step = 1;
+    const panels = [1, 2, 3, 4].map((n) => document.getElementById(`sim-panel-${n}`));
+    if (panels.some((p) => !p)) return;
+
+    const stepItems = form.querySelectorAll('.sim-step-item');
+    const btnCont = document.getElementById('btn-sim-continuar');
+    const btnVolta = document.getElementById('btn-sim-voltar');
+    const simNav = document.getElementById('sim-nav');
+    const fgtsValor = document.getElementById('fgts-valor');
+    const fgtsGroup = document.getElementById('fgts-valor-group');
+
+    function updateFgtsField() {
+        const tem = form.querySelector('input[name="fgts_possui"]:checked')?.value === 'sim';
+        fgtsGroup.classList.toggle('is-disabled', !tem);
+        if (!tem) fgtsValor.value = '';
+        fgtsValor.required = tem;
+    }
+    form.querySelectorAll('input[name="fgts_possui"]').forEach((r) => r.addEventListener('change', updateFgtsField));
+    updateFgtsField();
+
+    function setStep(n) {
+        step = n;
+        panels.forEach((p, i) => {
+            const on = i + 1 === n;
+            p.hidden = !on;
+            p.classList.toggle('is-active', on);
+        });
+        stepItems.forEach((el) => {
+            const s = parseInt(el.getAttribute('data-step'), 10);
+            el.classList.remove('active', 'done');
+            if (s === n) el.classList.add('active');
+            else if (s < n) el.classList.add('done');
+        });
+        const emValidacao = n === 3;
+        const noResultado = n === 4;
+        simNav.classList.toggle('sim-nav-hidden', emValidacao || noResultado);
+        btnVolta.hidden = n <= 1 || emValidacao || noResultado;
+        btnCont.hidden = emValidacao || noResultado;
+    }
+
+    function validateStep1() {
+        const renda = parseBRLDigits(document.getElementById('renda').value);
+        if (renda < 100) {
+            alert('Informe a renda familiar total.');
+            return false;
+        }
+        if (!document.getElementById('nascimento').value) {
+            alert('Informe sua data de nascimento.');
+            return false;
+        }
+        const temFgts = form.querySelector('input[name="fgts_possui"]:checked')?.value === 'sim';
+        if (temFgts && parseBRLDigits(fgtsValor.value) < 1) {
+            alert('Informe o valor do FGTS ou marque "Não".');
+            return false;
+        }
+        return true;
+    }
+
+    function runCalculation() {
+        const renda = parseBRLDigits(document.getElementById('renda').value);
+        const temFgts = form.querySelector('input[name="fgts_possui"]:checked')?.value === 'sim';
+        const fgts = temFgts ? parseBRLDigits(fgtsValor.value) : 0;
+        const financiamento = Math.min(renda * 30, 250000) + fgts;
+        const subsidio = Math.floor(financiamento * 0.15);
+        const parcela = Math.floor((financiamento - subsidio) / 360);
+
+        document.getElementById('result-financiamento').textContent = `R$ ${financiamento.toLocaleString('pt-BR')}`;
+        document.getElementById('result-subsidio').textContent = `R$ ${subsidio.toLocaleString('pt-BR')}`;
+        document.getElementById('result-parcela').textContent = `R$ ${parcela.toLocaleString('pt-BR')}/mês`;
+        document.getElementById('result-juros').textContent = '8,16% a.a.';
+    }
+
+    btnCont.addEventListener('click', () => {
+        if (step === 1) {
+            if (!validateStep1()) return;
+            setStep(2);
+        } else if (step === 2) {
+            setStep(3);
+            setTimeout(() => {
+                runCalculation();
+                setStep(4);
+            }, 1100);
+        }
+    });
+
+    btnVolta.addEventListener('click', () => {
+        if (step === 2) setStep(1);
+    });
+
+    form.addEventListener('submit', (e) => e.preventDefault());
+
+    const btnModal = document.getElementById('btn-sim-abrir-modal');
+    if (btnModal) {
+        btnModal.addEventListener('click', () => {
+            document.getElementById('modal-simulacao').classList.add('active');
+        });
+    }
+
+    window.resetSimuladorWizard = function () {
+        setStep(1);
+        document.getElementById('renda').value = '';
+        document.getElementById('nascimento').value = '';
+        form.querySelector('input[name="fgts_possui"][value="sim"]').checked = true;
+        fgtsValor.value = '';
+        document.getElementById('sim-regiao').value = '';
+        document.getElementById('empreendimento').value = '';
+        updateFgtsField();
+    };
+}
+
+initSimuladorWizard();
 
 // Form contato (modal)
 document.getElementById('form-contato').addEventListener('submit', (e) => {
@@ -189,6 +294,7 @@ function fecharModal() {
 
 function fecharModalSucesso() {
     document.getElementById('modal-sucesso').classList.remove('active');
+    if (typeof window.resetSimuladorWizard === 'function') window.resetSimuladorWizard();
 }
 
 document.querySelectorAll('.modal').forEach(modal => {
@@ -196,15 +302,6 @@ document.querySelectorAll('.modal').forEach(modal => {
         if (e.target === modal) modal.classList.remove('active');
     });
 });
-
-// Renda slider
-const rendaInput = document.getElementById('renda');
-const rendaValor = document.getElementById('renda-valor');
-if (rendaInput && rendaValor) {
-    rendaInput.addEventListener('input', () => {
-        rendaValor.textContent = parseInt(rendaInput.value).toLocaleString('pt-BR');
-    });
-}
 
 // Inicialização
 renderizarEmpreendimentos();

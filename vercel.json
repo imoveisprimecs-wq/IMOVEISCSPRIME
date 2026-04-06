@@ -1,5 +1,6 @@
 {
+  "name": "imoveis-cs",
   "framework": null,
   "buildCommand": null,
-  "outputDirectory": "."
+  "outputDirectory": "public"
 }

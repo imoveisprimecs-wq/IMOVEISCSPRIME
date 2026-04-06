@@ -137,10 +137,161 @@ body {
     z-index: 1;
 }
 
+.hero-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr minmax(240px, 38%);
+    gap: 32px 40px;
+    align-items: end;
+}
+
+@media (max-width: 900px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        order: -1;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+}
+
+.hero-copy {
+    padding-bottom: 8px;
+}
+
+.hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.92;
+    margin-bottom: 10px;
+}
+
+.hero-lead {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    opacity: 0.96;
+    max-width: 36rem;
+    margin-bottom: 18px;
+}
+
+.hero-camis-offer {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(6px);
+}
+
+.hero-camis-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--orange-700);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+.hero-camis-quote {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    opacity: 0.98;
+}
+
+.hero-visual {
+    text-align: center;
+}
+
+.hero-figure {
+    margin: 0;
+    line-height: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.hero-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.hero-camis-cta {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    opacity: 0.95;
+}
+
+.hero-camis-cta:hover {
+    opacity: 1;
+}
+
+.camis-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    max-width: calc(100vw - 40px);
+    background: var(--white);
+    color: var(--gray-900);
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.25;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.camis-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
+}
+
+.camis-float-icon {
+    font-size: 1.35rem;
+    line-height: 1;
+}
+
+.camis-float-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: left;
+}
+
+.camis-float-sub {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #25D366;
+}
+
 .hero h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     letter-spacing: -0.02em;
 }
 
@@ -196,6 +347,104 @@ body {
 .btn-lg {
     padding: 16px 36px;
     font-size: 1.1rem;
+}
+
+/* Fluxo Camis — credibilidade */
+.processo-camis {
+    padding: 56px 0 48px;
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.processo-title {
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 700;
+    color: var(--gray-900);
+    text-align: center;
+    margin-bottom: 12px;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.processo-intro {
+    text-align: center;
+    color: var(--gray-800);
+    max-width: 40rem;
+    margin: 0 auto 32px;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.processo-steps {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 960px) {
+    .processo-steps {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .processo-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+.processo-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 18px 16px;
+    background: var(--gray-50);
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+}
+
+.processo-step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--orange-600);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 50%;
+}
+
+.processo-step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--gray-800);
+}
+
+.processo-step-body strong {
+    font-size: 0.95rem;
+    color: var(--gray-900);
+}
+
+.processo-nota {
+    margin-top: 24px;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #64748b;
+    text-align: center;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Empreendimentos - scroll horizontal por região (estilo Cury) */
@@ -594,6 +843,308 @@ body {
     border-color: var(--orange-500);
 }
 
+/* Simulador — fluxo em etapas (estilo referência) */
+.simulador-flow {
+    --sim-blue: #1e3a5f;
+    --sim-blue-light: #2c4a7c;
+}
+
+.sim-wizard {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.sim-steps {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 28px;
+    padding: 0;
+}
+
+.sim-step-item {
+    flex: 1;
+    text-align: center;
+    font-size: 0.65rem;
+    color: #94a3b8;
+    line-height: 1.25;
+}
+
+@media (min-width: 520px) {
+    .sim-step-item {
+        font-size: 0.78rem;
+    }
+}
+
+.sim-step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    margin: 0 auto 6px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e1;
+    background: var(--white);
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.sim-step-item.active .sim-step-num {
+    border-color: var(--sim-blue);
+    background: var(--sim-blue);
+    color: var(--white);
+}
+
+.sim-step-item.done .sim-step-num {
+    border-color: var(--sim-blue);
+    background: var(--white);
+    color: var(--sim-blue);
+}
+
+.sim-step-item.active .sim-step-label,
+.sim-step-item.done .sim-step-label {
+    color: var(--sim-blue);
+    font-weight: 600;
+}
+
+.sim-wizard-title {
+    font-size: clamp(1.25rem, 3vw, 1.65rem);
+    color: var(--sim-blue);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.sim-wizard-sub {
+    color: #64748b;
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+}
+
+.sim-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 20px;
+}
+
+@media (max-width: 600px) {
+    .sim-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sim-form-grid-single {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+}
+
+.sim-field .sim-label-text {
+    display: block;
+    font-weight: 600;
+    color: var(--sim-blue);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.sim-field label {
+    font-weight: 600;
+    color: var(--sim-blue);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.sim-info-tip {
+    border: none;
+    background: none;
+    color: var(--sim-blue);
+    text-decoration: underline;
+    cursor: help;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0;
+    font-family: inherit;
+}
+
+.sim-field input[type="text"],
+.sim-field input[type="date"],
+.sim-field select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.sim-field input:focus,
+.sim-field select:focus {
+    outline: none;
+    border-color: var(--sim-blue);
+}
+
+.sim-radio-row {
+    margin-top: 4px;
+}
+
+.sim-radio-row label {
+    color: var(--gray-900);
+    font-weight: 400;
+}
+
+.sim-optional {
+    font-weight: 400;
+    color: #64748b;
+    font-size: 0.85em;
+}
+
+.sim-panel[hidden] {
+    display: none !important;
+}
+
+.sim-panel.is-active:not([hidden]) {
+    display: block;
+}
+
+#fgts-valor-group.is-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.sim-nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    align-items: stretch;
+}
+
+.sim-nav.sim-nav-hidden {
+    display: none;
+}
+
+.btn-sim-continuar {
+    flex: 1;
+    padding: 16px 24px;
+    background: var(--sim-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    font-family: inherit;
+}
+
+.btn-sim-continuar:hover {
+    background: var(--sim-blue-light);
+    transform: translateY(-1px);
+}
+
+.btn-sim-voltar {
+    padding: 16px 20px;
+    background: transparent;
+    color: var(--sim-blue);
+    border: 2px solid var(--gray-200);
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.btn-sim-voltar:hover {
+    border-color: var(--sim-blue);
+}
+
+.sim-validating {
+    text-align: center;
+    padding: 40px 16px 24px;
+}
+
+.sim-spinner {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 16px;
+    border: 4px solid var(--gray-200);
+    border-top-color: var(--sim-blue);
+    border-radius: 50%;
+    animation: sim-spin 0.75s linear infinite;
+}
+
+@keyframes sim-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.sim-validating-text {
+    color: var(--sim-blue);
+    font-weight: 600;
+}
+
+.sim-result-intro {
+    margin-bottom: 18px;
+    color: var(--gray-800);
+    font-size: 0.98rem;
+}
+
+.sim-disclaimer {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 14px;
+    line-height: 1.45;
+}
+
+.sim-resultados-inline {
+    margin-top: 0;
+}
+
+.sim-actions-final {
+    margin-top: 22px;
+}
+
+.form-contato-lead {
+    margin-bottom: 16px;
+    color: var(--gray-800);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.simulador-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.simulador-actions .btn-primary,
+.simulador-actions .btn-whatsapp-sim {
+    flex: 1 1 200px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.btn-whatsapp-sim {
+    background: #25D366;
+    color: white !important;
+    border: none;
+}
+
+.btn-whatsapp-sim:hover {
+    background: #20bd5a;
+    transform: translateY(-2px);
+}
+
 /* CTA */
 .cta {
     padding: 80px 0;
@@ -611,6 +1162,17 @@ body {
 .cta p {
     margin-bottom: 32px;
     font-size: 1.1rem;
+}
+
+.cta-nota {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    line-height: 1.45;
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-whatsapp-lg {
@@ -813,7 +1375,15 @@ body {
 .tempo-resposta {
     font-size: 0.9rem;
     color: var(--gray-800);
-    margin-bottom: 24px !important;
+    margin-bottom: 12px !important;
+}
+
+.modal-nota-legal {
+    font-size: 0.72rem;
+    color: var(--gray-800);
+    line-height: 1.4;
+    margin-bottom: 20px !important;
+    opacity: 0.9;
 }
 
 /* Responsivo */

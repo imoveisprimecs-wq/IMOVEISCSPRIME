@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMOVEIS CS | Apartamentos MCMV em São Paulo</title>
+    <title>IMOVEIS CS | Aprovação online rápida · Visita ao decorado · MCMV São Paulo</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
                 <a href="#simulador">Simulador</a>
                 <a href="#contato">Contato</a>
             </nav>
-            <a href="https://wa.me/5511999999999" class="btn-whatsapp" target="_blank" rel="noopener">
+            <a href="https://wa.me/5511981445007?text=Ol%C3%A1%20Camis!%20Vim%20pelo%20site%20IMOVEIS%20CS.%20Quero%20o%20fluxo%20de%20aprova%C3%A7%C3%A3o%20online%20%28resposta%20em%20poucas%20horas%29%20e%20depois%20agendar%20visita%20ao%20decorado%20para%20escolher%20minha%20unidade." class="btn-whatsapp" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
@@ -29,33 +29,87 @@
     </header>
 
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-heading">
         <div class="hero-bg"></div>
-        <div class="container hero-content">
-            <h1>Encontre seu imóvel em São Paulo</h1>
-            <div class="filters">
-                <div class="filter-group">
-                    <label>Região</label>
-                    <select id="filter-regiao">
-                        <option value="">Todas</option>
-                        <option value="oeste">Zona Oeste</option>
-                        <option value="norte">Zona Norte</option>
-                        <option value="sul">Zona Sul</option>
-                        <option value="leste">Zona Leste</option>
-                        <option value="guarulhos">Guarulhos</option>
-                    </select>
+        <div class="container hero-inner">
+            <div class="hero-copy">
+                <p class="hero-eyebrow">Pré-análise online · Minha Casa Minha Vida · São Paulo</p>
+                <h1 id="hero-heading">Aprovação online em poucas horas — depois, visita ao decorado para escolher sua unidade</h1>
+                <p class="hero-lead">Eu sou a <strong>Camis</strong>. Te guio pelo <strong>fluxo digital</strong>: você envia seus dados por aqui, nossa equipe trabalha uma <strong>pré-análise de aprovação</strong> com agilidade — em muitos casos com retorno em <strong>poucas horas</strong>. <strong>Aprovado</strong>, já agendamos sua <strong>visita ao apartamento decorado</strong> para você escolher a unidade com segurança e clareza.</p>
+                <div class="hero-camis-offer" role="note" aria-label="Mensagem da Camis">
+                    <span class="hero-camis-badge">Camis</span>
+                    <p class="hero-camis-quote">“Quer <strong>ser aprovado sem perder tempo</strong>? Chama no WhatsApp — organizo seu cadastro online, acompanho a pré-análise e, quando der o sinal verde, <strong>marcamos o decorado</strong> para você fechar a unidade.”</p>
                 </div>
-                <div class="filter-group">
-                    <label>Dormitórios</label>
-                    <select id="filter-dormitorios">
-                        <option value="">Todos</option>
-                        <option value="1">1 dormitório</option>
-                        <option value="2">2 dormitórios</option>
-                        <option value="3">3 dormitórios</option>
-                    </select>
+                <div class="filters" role="search" aria-label="Filtrar imóveis">
+                    <div class="filter-group">
+                        <label for="filter-regiao">Região</label>
+                        <select id="filter-regiao">
+                            <option value="">Todas</option>
+                            <option value="oeste">Zona Oeste</option>
+                            <option value="norte">Zona Norte</option>
+                            <option value="sul">Zona Sul</option>
+                            <option value="leste">Zona Leste</option>
+                            <option value="guarulhos">Guarulhos</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="filter-dormitorios">Dormitórios</label>
+                        <select id="filter-dormitorios">
+                            <option value="">Todos</option>
+                            <option value="1">1 dormitório</option>
+                            <option value="2">2 dormitórios</option>
+                            <option value="3">3 dormitórios</option>
+                            <option value="4">4 dormitórios</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="filtrarImoveis()">Buscar</button>
                 </div>
-                <button class="btn btn-primary" onclick="filtrarImoveis()">Buscar</button>
             </div>
+            <div class="hero-visual">
+                <figure class="hero-figure">
+                    <img src="assets/hero-assistente-mcmv.png" width="520" height="520" alt="Camis, assistente virtual da IMOVEIS CS: pré-aprovação online rápida e visita ao decorado no Minha Casa Minha Vida" loading="eager" decoding="async">
+                </figure>
+                <a href="https://wa.me/5511981445007?text=Ol%C3%A1%20Camis!%20Vim%20pelo%20site%20IMOVEIS%20CS.%20Quero%20o%20fluxo%20de%20aprova%C3%A7%C3%A3o%20online%20%28resposta%20em%20poucas%20horas%29%20e%20depois%20agendar%20visita%20ao%20decorado%20para%20escolher%20minha%20unidade." class="hero-camis-cta" target="_blank" rel="noopener">Iniciar pré-aprovação online com a Camis →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fluxo: credibilidade + expectativa alinhada -->
+    <section class="processo-camis" aria-labelledby="processo-heading">
+        <div class="container">
+            <h2 id="processo-heading" class="processo-title">Do primeiro clique à escolha da unidade — passo a passo</h2>
+            <p class="processo-intro">Processo pensado para você entender o caminho com <strong>transparência</strong> e <strong>segurança</strong>, dentro das regras do programa e da análise de crédito.</p>
+            <ol class="processo-steps">
+                <li class="processo-step">
+                    <span class="processo-step-num">1</span>
+                    <div class="processo-step-body">
+                        <strong>Simulação e cadastro online</strong>
+                        <span>Com a Camis você informa renda, FGTS e preferências — tudo pelo site ou WhatsApp.</span>
+                    </div>
+                </li>
+                <li class="processo-step">
+                    <span class="processo-step-num">2</span>
+                    <div class="processo-step-body">
+                        <strong>Pré-análise para aprovação</strong>
+                        <span>Nossa equipe analisa seu perfil com prioridade. Em muitos casos, retorno em poucas horas.*</span>
+                    </div>
+                </li>
+                <li class="processo-step">
+                    <span class="processo-step-num">3</span>
+                    <div class="processo-step-body">
+                        <strong>Aprovado — agenda no decorado</strong>
+                        <span>Você visita o apartamento decorado com hora marcada, sem surpresa.</span>
+                    </div>
+                </li>
+                <li class="processo-step">
+                    <span class="processo-step-num">4</span>
+                    <div class="processo-step-body">
+                        <strong>Escolha da unidade</strong>
+                        <span>No decorado você define a unidade que faz sentido para a sua família e seguimos com a formalização.</span>
+                    </div>
+                </li>
+            </ol>
+            <p class="processo-nota">* Prazo de retorno e aprovação finais dependem da documentação enviada, do perfil e das regras da instituição financeira e do programa habitacional. Não configuram garantia de crédito.</p>
         </div>
     </section>
 
@@ -85,98 +139,165 @@
     <!-- About / Destaques -->
     <section class="destaques">
         <div class="container">
-            <h2>Imóveis com a qualidade IMOVEIS CS</h2>
-            <p class="destaques-desc">A IMOVEIS CS está pronta para ajudá-lo a realizar o sonho da casa própria nas melhores regiões de São Paulo.</p>
-            <p class="destaques-mcmv">Pelo programa <strong>Minha Casa Minha Vida</strong>, apartamentos com entrada a partir de <strong>R$ 800</strong> nas melhores regiões de São Paulo.</p>
-            <a href="#simulador" class="link-saiba">Saiba mais →</a>
+            <h2>IMOVEIS CS — credibilidade e agilidade no MCMV</h2>
+            <p class="destaques-desc">Equipe especializada no <strong>Minha Casa Minha Vida</strong> e no que a Caixa e o programa exigem — para você avançar do cadastro à <strong>pré-aprovação</strong> e à <strong>visita ao decorado</strong> com confiança.</p>
+            <p class="destaques-mcmv">Apartamentos nas melhores regiões de São Paulo, com entrada a partir de <strong>R$ 800</strong> e fluxo digital guiado pela <strong>Camis</strong>.</p>
+            <a href="#simulador" class="link-saiba">Simular e iniciar pré-análise →</a>
             <div class="destaques-cards">
                 <div class="destaque-card">
-                    <span class="destaque-valor">R$ 800</span>
-                    <span class="destaque-label">Entrada mínima</span>
+                    <span class="destaque-valor">Online</span>
+                    <span class="destaque-label">Cadastro e pré-análise</span>
                 </div>
                 <div class="destaque-card">
-                    <span class="destaque-valor">MCMV 2026</span>
-                    <span class="destaque-label">Programa ativo</span>
+                    <span class="destaque-valor">Horas*</span>
+                    <span class="destaque-label">Retorno em muitos casos</span>
                 </div>
                 <div class="destaque-card">
-                    <span class="destaque-valor">0%</span>
-                    <span class="destaque-label">burocracia</span>
+                    <span class="destaque-valor">Decorado</span>
+                    <span class="destaque-label">Visita para escolher unidade</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Simulador -->
-    <section id="simulador" class="simulador">
+    <!-- Simulador (fluxo em etapas — referência visual estilo banco) -->
+    <section id="simulador" class="simulador simulador-flow">
         <div class="container">
-            <h2>Faça uma simulação</h2>
-            <p class="simulador-sub">Descubra quanto você pode financiar pelo Minha Casa Minha Vida 2026</p>
-            <form class="simulador-form" id="form-simulador">
-                <div class="form-group">
-                    <label>💰 Qual é a sua renda familiar?</label>
-                    <p class="form-hint">Informe a renda bruta mensal de todos que vão compor a renda</p>
-                    <input type="range" id="renda" min="1500" max="27000" value="3000" step="500">
-                    <div class="renda-display">R$ <span id="renda-valor">3.000</span></div>
-                </div>
-                <div class="form-group">
-                    <label>Possui dependente?</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="dependente" value="nao" checked> Não</label>
-                        <label><input type="radio" name="dependente" value="sim"> Sim</label>
+            <form class="simulador-form sim-wizard" id="form-simulador" novalidate>
+                <ol class="sim-steps" aria-label="Etapas da simulação">
+                    <li class="sim-step-item active" data-step="1"><span class="sim-step-num">1</span><span class="sim-step-label">Qual a sua renda?</span></li>
+                    <li class="sim-step-item" data-step="2"><span class="sim-step-num">2</span><span class="sim-step-label">Onde você quer morar?</span></li>
+                    <li class="sim-step-item" data-step="3"><span class="sim-step-num">3</span><span class="sim-step-label">Validando seus dados</span></li>
+                    <li class="sim-step-item" data-step="4"><span class="sim-step-num">4</span><span class="sim-step-label">Confira o resultado!</span></li>
+                </ol>
+
+                <h2 class="sim-wizard-title">Primeiro passo da sua pré-aprovação online</h2>
+                <p class="sim-wizard-sub">Simule em minutos. Os dados ajudam a Camis e nossa equipe a prepararem sua <strong>análise de perfil</strong> — com resposta ágil e, após aprovação, <strong>visita ao decorado</strong> para escolher a unidade.*</p>
+
+                <div class="sim-panel is-active" id="sim-panel-1" data-panel="1">
+                    <div class="sim-form-grid">
+                        <div class="form-group sim-field">
+                            <label for="renda">Renda familiar total <button type="button" class="sim-info-tip" title="Soma da renda bruta mensal de todas as pessoas que compõem a família." aria-label="Saiba mais sobre renda familiar">Saiba mais</button></label>
+                            <input type="text" id="renda" name="renda" inputmode="numeric" autocomplete="off" placeholder="Digite o valor R$" required>
+                        </div>
+                        <div class="form-group sim-field">
+                            <label for="nascimento">Qual a sua data de nascimento?</label>
+                            <input type="date" id="nascimento" name="nascimento" required>
+                        </div>
+                        <div class="form-group sim-field">
+                            <span class="sim-label-text">Possui FGTS?</span>
+                            <div class="radio-group sim-radio-row">
+                                <label><input type="radio" name="fgts_possui" value="sim" checked> Sim</label>
+                                <label><input type="radio" name="fgts_possui" value="nao"> Não</label>
+                            </div>
+                        </div>
+                        <div class="form-group sim-field" id="fgts-valor-group">
+                            <label for="fgts-valor">Valor do FGTS: <button type="button" class="sim-info-tip" title="Saldo disponível na conta vinculada ao FGTS." aria-label="Saiba mais sobre valor do FGTS">Saiba mais</button></label>
+                            <input type="text" id="fgts-valor" name="fgts-valor" inputmode="numeric" autocomplete="off" placeholder="Digite o valor R$">
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Possui FGTS?</label>
-                    <select id="fgts">
-                        <option value="0">Não possuo</option>
-                        <option value="3000">R$ 1.000 a R$ 5.000</option>
-                        <option value="7500">R$ 5.000 a R$ 10.000</option>
-                        <option value="12500">R$ 10.000 a R$ 15.000</option>
-                        <option value="15000">Acima de R$ 15.000</option>
-                    </select>
+
+                <div class="sim-panel" id="sim-panel-2" data-panel="2" hidden>
+                    <div class="sim-form-grid sim-form-grid-single">
+                        <div class="form-group sim-field">
+                            <label for="sim-regiao">Região de interesse</label>
+                            <select id="sim-regiao" name="sim-regiao">
+                                <option value="">Selecione a região...</option>
+                                <option value="oeste">Zona Oeste</option>
+                                <option value="norte">Zona Norte</option>
+                                <option value="sul">Zona Sul</option>
+                                <option value="leste">Zona Leste</option>
+                                <option value="guarulhos">Guarulhos</option>
+                            </select>
+                        </div>
+                        <div class="form-group sim-field">
+                            <label for="empreendimento">Empreendimento de interesse <span class="sim-optional">(opcional)</span></label>
+                            <select id="empreendimento" name="empreendimento">
+                                <option value="">Selecione o empreendimento...</option>
+                                <option value="barra-funda-900">Barra Funda 900</option>
+                                <option value="barra-funda-930">Barra Funda 930</option>
+                                <option value="merito-lapa">Mérito Lapa</option>
+                                <option value="merito-barra-funda">Mérito Barra Funda</option>
+                                <option value="atmosfera-jaguare">Atmosfera Jaguaré</option>
+                                <option value="dez-butanta">Dez Butantã</option>
+                                <option value="singular-butanta">Singular Butantã</option>
+                                <option value="cidade-lapa-agua-branca">Cidade Lapa · Água Branca</option>
+                                <option value="cidade-lapa-pompeia">Cidade Lapa · Pompéia</option>
+                                <option value="cidade-lapa-santa-marina">Cidade Lapa · Santa Marina</option>
+                                <option value="astro-santa-marina">Astro Santa Marina</option>
+                                <option value="arte-santa-marina">Arte Santa Marina</option>
+                                <option value="galleria-santa-marina">Galleria Santa Marina</option>
+                                <option value="supreme-vila-romana">Supreme Vila Romana</option>
+                                <option value="cidade-villa-lobos-melodia">Cidade Villa-Lobos · Melodia</option>
+                                <option value="cidade-villa-lobos-maestro">Cidade Villa-Lobos · Maestro</option>
+                                <option value="cidade-villa-lobos-soprano">Cidade Villa-Lobos · Soprano</option>
+                                <option value="cidade-villa-lobos-sonata">Cidade Villa-Lobos · Sonata</option>
+                                <option value="mirae-bom-retiro">Mirae Bom Retiro</option>
+                                <option value="marco-freguesia">Marco Freguesia</option>
+                                <option value="360-park-view">360° Park View</option>
+                                <option value="alto-sao-domingos">Alto São Domingos</option>
+                                <option value="dez-limao">Dez Limão</option>
+                                <option value="cidade-parque-guarapiranga">Cidade Parque Guarapiranga</option>
+                                <option value="parque-das-nacoes-laguna">Parque das Nações · Laguna</option>
+                                <option value="alto-chacara-santo-antonio">Alto Chácara Santo Antônio</option>
+                                <option value="lyne-campo-limpo">Lyne Campo Limpo</option>
+                                <option value="praca-santo-antonio">Praça Santo Antônio</option>
+                                <option value="novo-mundo-carrao">Novo Mundo Carrão</option>
+                                <option value="modern-mooca">Modern Mooca</option>
+                                <option value="dez-belenzinho">Dez Belenzinho</option>
+                                <option value="merito-belenzinho">Mérito Belenzinho</option>
+                                <option value="cidade-mooca-navona">Cidade Mooca · Navona</option>
+                                <option value="merito-guarulhos">Mérito Guarulhos</option>
+                                <option value="next-guarulhos">Next Guarulhos</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Empreendimento de interesse</label>
-                    <select id="empreendimento">
-                        <option value="">Selecione o empreendimento...</option>
-                        <option value="barra-funda-900">Barra Funda 900</option>
-                        <option value="barra-funda-930">Barra Funda 930</option>
-                        <option value="merito-lapa">Mérito Lapa</option>
-                        <option value="merito-barra-funda">Mérito Barra Funda</option>
-                        <option value="atmosfera-jaguare">Atmosfera Jaguaré</option>
-                        <option value="dez-butanta">Dez Butantã</option>
-                        <option value="singular-butanta">Singular Butantã</option>
-                        <option value="cidade-lapa-agua-branca">Cidade Lapa · Água Branca</option>
-                        <option value="cidade-lapa-pompeia">Cidade Lapa · Pompéia</option>
-                        <option value="cidade-lapa-santa-marina">Cidade Lapa · Santa Marina</option>
-                        <option value="astro-santa-marina">Astro Santa Marina</option>
-                        <option value="arte-santa-marina">Arte Santa Marina</option>
-                        <option value="galleria-santa-marina">Galleria Santa Marina</option>
-                        <option value="supreme-vila-romana">Supreme Vila Romana</option>
-                        <option value="cidade-villa-lobos-melodia">Cidade Villa-Lobos · Melodia</option>
-                        <option value="cidade-villa-lobos-maestro">Cidade Villa-Lobos · Maestro</option>
-                        <option value="cidade-villa-lobos-soprano">Cidade Villa-Lobos · Soprano</option>
-                        <option value="cidade-villa-lobos-sonata">Cidade Villa-Lobos · Sonata</option>
-                        <option value="mirae-bom-retiro">Mirae Bom Retiro</option>
-                        <option value="marco-freguesia">Marco Freguesia</option>
-                        <option value="360-park-view">360° Park View</option>
-                        <option value="alto-sao-domingos">Alto São Domingos</option>
-                        <option value="dez-limao">Dez Limão</option>
-                        <option value="cidade-parque-guarapiranga">Cidade Parque Guarapiranga</option>
-                        <option value="parque-das-nacoes-laguna">Parque das Nações · Laguna</option>
-                        <option value="alto-chacara-santo-antonio">Alto Chácara Santo Antônio</option>
-                        <option value="lyne-campo-limpo">Lyne Campo Limpo</option>
-                        <option value="praca-santo-antonio">Praça Santo Antônio</option>
-                        <option value="novo-mundo-carrao">Novo Mundo Carrão</option>
-                        <option value="modern-mooca">Modern Mooca</option>
-                        <option value="dez-belenzinho">Dez Belenzinho</option>
-                        <option value="merito-belenzinho">Mérito Belenzinho</option>
-                        <option value="cidade-mooca-navona">Cidade Mooca · Navona</option>
-                        <option value="merito-guarulhos">Mérito Guarulhos</option>
-                        <option value="next-guarulhos">Next Guarulhos</option>
-                    </select>
+
+                <div class="sim-panel" id="sim-panel-3" data-panel="3" hidden>
+                    <div class="sim-validating">
+                        <div class="sim-spinner" aria-hidden="true"></div>
+                        <p class="sim-validating-text">Organizando seus dados para a pré-análise...</p>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg">Simular agora →</button>
+
+                <div class="sim-panel" id="sim-panel-4" data-panel="4" hidden>
+                    <p class="sim-result-intro">Estimativa do seu cenário no MCMV. <strong>Próximo passo:</strong> envie seus dados para a <strong>pré-análise online</strong> — com retorno ágil — e siga para a <strong>visita ao decorado</strong> após aprovação.</p>
+                    <div class="simulacao-resultados sim-resultados-inline">
+                        <div class="resultado-item">
+                            <span class="resultado-label">Financiamento</span>
+                            <span class="resultado-valor" id="result-financiamento">R$ 000.000</span>
+                        </div>
+                        <div class="resultado-item">
+                            <span class="resultado-label">Subsídio do Governo</span>
+                            <span class="resultado-valor" id="result-subsidio">R$ 00.000</span>
+                        </div>
+                        <div class="resultado-item">
+                            <span class="resultado-label">1ª Parcela Estimada</span>
+                            <span class="resultado-valor" id="result-parcela">R$ 0.000/mês</span>
+                        </div>
+                        <div class="resultado-item">
+                            <span class="resultado-label">Juros Nominal</span>
+                            <span class="resultado-valor" id="result-juros">0,00% a.a.</span>
+                        </div>
+                    </div>
+                    <p class="sim-disclaimer">* Simulação meramente referencial. Crédito e condições finais dependem da análise da instituição financeira e do programa.</p>
+                    <div class="simulador-actions sim-actions-final">
+                        <button type="button" class="btn btn-primary btn-lg" id="btn-sim-abrir-modal">Enviar dados para pré-análise</button>
+                        <a href="https://wa.me/5511981445007?text=Ol%C3%A1%20Camis!%20Vim%20pelo%20site%20IMOVEIS%20CS%20%E2%80%94%20quero%20agendar%20visita%20ao%20apartamento%20decorado%20ap%C3%B3s%20a%20pr%C3%A9-aprova%C3%A7%C3%A3o." class="btn btn-lg btn-whatsapp-sim" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                            Agendar visita ao decorado
+                        </a>
+                    </div>
+                </div>
+
+                <div class="sim-nav" id="sim-nav">
+                    <button type="button" class="btn-sim-voltar" id="btn-sim-voltar" hidden>Voltar</button>
+                    <button type="button" class="btn-sim-continuar" id="btn-sim-continuar">Continuar</button>
+                </div>
             </form>
         </div>
     </section>
@@ -184,14 +305,15 @@
     <!-- CTA Final -->
     <section id="contato" class="cta">
         <div class="container">
-            <h2>Pronto para encontrar seu apartamento?</h2>
-            <p>Fale agora com nossa equipe e garanta as melhores condições pelo Minha Casa Minha Vida.</p>
-            <a href="https://wa.me/5511999999999" class="btn btn-whatsapp-lg" target="_blank" rel="noopener">
+            <h2>Pré-aprovação online — depois, decorado para escolher a unidade</h2>
+            <p>Fale com a <strong>Camis</strong> no WhatsApp: fluxo digital, retorno em poucas horas na maioria dos casos* e visita ao apartamento decorado após aprovação.</p>
+            <a href="https://wa.me/5511981445007?text=Ol%C3%A1%20Camis!%20Vim%20pelo%20site%20IMOVEIS%20CS.%20Quero%20o%20fluxo%20de%20aprova%C3%A7%C3%A3o%20online%20%28resposta%20em%20poucas%20horas%29%20e%20depois%20agendar%20visita%20ao%20decorado%20para%20escolher%20minha%20unidade." class="btn btn-whatsapp-lg" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
-                Falar no WhatsApp
+                Falar com a Camis no WhatsApp
             </a>
+            <p class="cta-nota">* Prazo e aprovação dependem de documentação, perfil e regras do crédito. Sem garantia de concessão.</p>
         </div>
     </section>
 
@@ -201,7 +323,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#" class="logo"><img src="assets/logo-imoveis-cs-light.svg" alt="IMOVEIS CS" class="logo-img logo-footer"></a>
-                    <p>Especialista em apartamentos Minha Casa Minha Vida em São Paulo.</p>
+                    <p>MCMV em São Paulo: pré-análise online ágil, credibilidade no programa e visita ao decorado para escolha da unidade.</p>
                 </div>
                 <div class="footer-links">
                     <h4>Regiões</h4>
@@ -215,7 +337,7 @@
                     <h4>Links</h4>
                     <a href="#imoveis">Imóveis</a>
                     <a href="#simulador">Simulador</a>
-                    <a href="#contato">WhatsApp</a>
+                    <a href="https://wa.me/5511981445007?text=Ol%C3%A1%20Camis!%20Vim%20pelo%20site%20IMOVEIS%20CS.%20Quero%20o%20fluxo%20de%20aprova%C3%A7%C3%A3o%20online%20%28resposta%20em%20poucas%20horas%29%20e%20depois%20agendar%20visita%20ao%20decorado%20para%20escolher%20minha%20unidade." target="_blank" rel="noopener">Camis · WhatsApp</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -228,33 +350,16 @@
     <div id="modal-simulacao" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>🎉 Sua simulação está pronta!</h3>
+                <h3>Quase lá — pré-análise com a IMOVEIS CS</h3>
                 <button class="modal-close" onclick="fecharModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="simulacao-resultados">
-                    <div class="resultado-item">
-                        <span class="resultado-label">Financiamento</span>
-                        <span class="resultado-valor" id="result-financiamento">R$ 000.000</span>
-                    </div>
-                    <div class="resultado-item">
-                        <span class="resultado-label">Subsídio do Governo</span>
-                        <span class="resultado-valor" id="result-subsidio">R$ 00.000</span>
-                    </div>
-                    <div class="resultado-item">
-                        <span class="resultado-label">1ª Parcela Estimada</span>
-                        <span class="resultado-valor" id="result-parcela">R$ 0.000/mês</span>
-                    </div>
-                    <div class="resultado-item">
-                        <span class="resultado-label">Juros Nominal</span>
-                        <span class="resultado-valor" id="result-juros">0,00% a.a.</span>
-                    </div>
-                </div>
+                <p class="form-contato-lead">Deixe nome e celular: nossa equipe e a <strong>Camis</strong> dão sequência à <strong>pré-análise online</strong> e retornam com prioridade — para, após aprovação, agendarmos sua <strong>visita ao decorado</strong>.</p>
                 <form id="form-contato" class="form-contato">
-                    <p class="form-contato-text">Informe seu contato e receba sua simulação completa gratuitamente</p>
+                    <p class="form-contato-text">Seus dados para pré-análise (sem custo nesta etapa)</p>
                     <input type="text" placeholder="Seu Nome" required>
                     <input type="tel" placeholder="Seu Celular" required>
-                    <button type="submit" class="btn btn-primary">✅ Enviar simulação</button>
+                    <button type="submit" class="btn btn-primary">✅ Enviar para pré-análise</button>
                 </form>
                 <a href="#" class="link-voltar" onclick="fecharModal(); return false;">← Voltar e ajustar</a>
             </div>
@@ -265,11 +370,17 @@
     <div id="modal-sucesso" class="modal">
         <div class="modal-content modal-sucesso">
             <h3>🎉 Enviado com sucesso!</h3>
-            <p>Sua solicitação foi enviada para a IMOVEIS CS.<br>Nossa equipe vai entrar em contato em breve!</p>
-            <p class="tempo-resposta">⏱️ Tempo médio de resposta: Menos de 5 min</p>
+            <p>Recebemos seus dados. A equipe e a <strong>Camis</strong> vão analisar seu perfil para a <strong>pré-aprovação</strong> e retornar por WhatsApp ou ligação.</p>
+            <p class="tempo-resposta">⏱️ Em muitos casos, retorno em poucas horas em dias úteis — conforme documentação e fila.*</p>
+            <p class="modal-nota-legal">* Não garante aprovação de crédito. Análise definitiva é da instituição financeira.</p>
             <button class="btn btn-primary" onclick="fecharModalSucesso()">🔄 Fazer nova simulação</button>
         </div>
     </div>
+
+    <a href="https://wa.me/5511981445007?text=Ol%C3%A1%20Camis!%20Vim%20pelo%20site%20IMOVEIS%20CS.%20Quero%20o%20fluxo%20de%20aprova%C3%A7%C3%A3o%20online%20%28resposta%20em%20poucas%20horas%29%20e%20depois%20agendar%20visita%20ao%20decorado%20para%20escolher%20minha%20unidade." class="camis-float" target="_blank" rel="noopener" aria-label="Camis: pré-aprovação online e visita ao decorado">
+        <span class="camis-float-icon" aria-hidden="true">💬</span>
+        <span class="camis-float-text"><strong>Camis</strong><span class="camis-float-sub">Pré-aprovação rápida · decorado</span></span>
+    </a>
 
     <script src="script.js"></script>
 </body>
