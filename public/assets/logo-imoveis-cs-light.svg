@@ -1,12 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 36" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 238 46" fill="none" role="img" aria-label="IMOVEIS CS — Minha Casa Minha Vida">
   <defs>
-    <linearGradient id="gl" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ea580c"/>
-      <stop offset="100%" stop-color="#fb923c"/>
+    <linearGradient id="mcvSealL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#004d33"/>
+      <stop offset="45%" stop-color="#007a4d"/>
+      <stop offset="100%" stop-color="#00b368"/>
+    </linearGradient>
+    <linearGradient id="mcvSealShineL" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="csOrangeL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#fdba74"/>
     </linearGradient>
   </defs>
-  <text font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="url(#gl)">
-    <tspan x="0" y="28">IMOVEIS</tspan>
-    <tspan x="118" y="28"> CS</tspan>
+  <rect x="0" y="4" width="42" height="38" rx="10" fill="url(#mcvSealL)"/>
+  <rect x="0" y="4" width="42" height="18" rx="10" fill="url(#mcvSealShineL)"/>
+  <path fill="#fff" d="M21 9.5l11.2 9.2h-2.4v13.8H12.2V18.7H9.8L21 9.5z"/>
+  <path fill="url(#mcvSealL)" d="M17.8 21.2h6.4v11.3h-6.4V21.2z"/>
+  <path fill="#b8f5d0" fill-opacity="0.35" d="M21 12.2l6.2 5.1h-1.3v2.1h-9.8v-2.1h-1.3l6.2-5.1z"/>
+  <text x="52" y="27" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="21" font-weight="800" letter-spacing="-0.03em">
+    <tspan fill="#ecfdf5">IMOVEIS</tspan><tspan fill="url(#csOrangeL)" dx="4" letter-spacing="-0.04em">CS</tspan>
   </text>
+  <text x="52" y="41" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="9.5" font-weight="700" fill="#6ee7b7" letter-spacing="0.06em">MINHA CASA MINHA VIDA</text>
 </svg>
