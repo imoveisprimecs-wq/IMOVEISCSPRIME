@@ -29,8 +29,11 @@ const GOOGLE_FORM_ENTRIES = {
     empreendimento: '',
     empreendimento_texto: '',
     mensagem: '',
-    aceito_contato: ''
+    aceito_contato: 'entry.911115408'
 };
+
+/** Texto idêntico à opção escolhida no Google Forms (múltipla escolha Sim/Não ou semelhante). Se a resposta não aparecer na coluna, copie o texto exato da opção no formulário. */
+const GOOGLE_FORM_ACEITO_CONTATO_OPCAO = 'Sim';
 
 /** Opcional: se as respostas não aparecerem, no viewform → F12 → inspecionar o <form> e copie o value de input[name="fbzx"]. */
 const GOOGLE_FORM_FBZX = '';
@@ -482,7 +485,12 @@ function enviarParaGoogleForm(formEl) {
     if (E.empreendimento) addField(E.empreendimento, emb);
     if (E.empreendimento_texto) addField(E.empreendimento_texto, embTexto);
     if (E.mensagem) addField(E.mensagem, mensagem);
-    if (E.aceito_contato) addField(E.aceito_contato, 'Sim');
+    if (E.aceito_contato) {
+        const aceitoChk = formEl.querySelector('input[name="aceito_contato"]');
+        if (aceitoChk && aceitoChk.checked) {
+            addField(E.aceito_contato, String(GOOGLE_FORM_ACEITO_CONTATO_OPCAO || 'Sim').trim());
+        }
+    }
 
     if (String(GOOGLE_FORM_FBZX || '').trim()) {
         addField('fbzx', String(GOOGLE_FORM_FBZX).trim());
