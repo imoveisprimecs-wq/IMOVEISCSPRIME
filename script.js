@@ -32,6 +32,9 @@ const GOOGLE_FORM_ENTRIES = {
     aceito_contato: ''
 };
 
+/** Opcional: se as respostas não aparecerem, no viewform → F12 → inspecionar o <form> e copie o value de input[name="fbzx"]. */
+const GOOGLE_FORM_FBZX = '';
+
 const FORMSPREE_FORM_ID = '';
 
 // ============================================================
@@ -440,12 +443,13 @@ function googleFormConfigOk() {
     return !!(E.nome && E.email && E.telefone);
 }
 
-async function enviarParaGoogleForm(formEl) {
+function enviarParaGoogleForm(formEl) {
     const E = GOOGLE_FORM_ENTRIES;
-    const params = new URLSearchParams();
+    const action = String(GOOGLE_FORM_POST_URL || '').trim();
     const nome = formEl.querySelector('#pre-aprov-nome')?.value?.trim() ?? '';
     const email = formEl.querySelector('#pre-aprov-email')?.value?.trim() ?? '';
-    const tel = formEl.querySelector('#pre-aprov-telefone')?.value?.trim() ?? '';
+    const telRaw = formEl.querySelector('#pre-aprov-telefone')?.value?.trim() ?? '';
+    const tel = digitosTelefoneBR(telRaw) || telRaw;
     const cpf = cpfDigitos(formEl.querySelector('#pre-aprov-cpf')?.value || '');
     const origem = formEl.querySelector('#pre-aprov-origem')?.value ?? '';
     const emb = formEl.querySelector('#pre-aprov-empreendimento')?.value ?? '';
@@ -453,21 +457,46 @@ async function enviarParaGoogleForm(formEl) {
     let mensagem = formEl.querySelector('#pre-aprov-mensagem')?.value?.trim() ?? '';
     mensagem = montarMensagemComNotaAnexos(mensagem, formEl);
 
-    if (E.nome) params.append(E.nome, nome);
-    if (E.email) params.append(E.email, email);
-    if (E.telefone) params.append(E.telefone, tel);
-    if (E.cpf && cpf.length === 11) params.append(E.cpf, cpf);
-    if (E.origem) params.append(E.origem, origem);
-    if (E.empreendimento) params.append(E.empreendimento, emb);
-    if (E.empreendimento_texto) params.append(E.empreendimento_texto, embTexto);
-    if (E.mensagem) params.append(E.mensagem, mensagem);
-    if (E.aceito_contato) params.append(E.aceito_contato, 'Sim');
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = action;
+    // Nova aba: o Google mostra confirmação ou erro (perguntas em falta / fbzx). Iframe oculto falha em muitos casos.
+    form.target = '_blank';
+    form.acceptCharset = 'UTF-8';
+    form.style.display = 'none';
 
-    await fetch(String(GOOGLE_FORM_POST_URL).trim(), {
-        method: 'POST',
-        mode: 'no-cors',
-        body: params
-    });
+    function addField(name, value) {
+        if (!name) return;
+        const inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = name;
+        inp.value = value == null ? '' : String(value);
+        form.appendChild(inp);
+    }
+
+    if (E.nome) addField(E.nome, nome);
+    if (E.email) addField(E.email, email);
+    if (E.telefone) addField(E.telefone, tel);
+    if (E.cpf && cpf.length === 11) addField(E.cpf, cpf);
+    if (E.origem) addField(E.origem, origem);
+    if (E.empreendimento) addField(E.empreendimento, emb);
+    if (E.empreendimento_texto) addField(E.empreendimento_texto, embTexto);
+    if (E.mensagem) addField(E.mensagem, mensagem);
+    if (E.aceito_contato) addField(E.aceito_contato, 'Sim');
+
+    if (String(GOOGLE_FORM_FBZX || '').trim()) {
+        addField('fbzx', String(GOOGLE_FORM_FBZX).trim());
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+    setTimeout(() => {
+        try {
+            form.remove();
+        } catch (e) {}
+    }, 2000);
+
+    return Promise.resolve();
 }
 
 function fecharModalPreAprovacao() {
