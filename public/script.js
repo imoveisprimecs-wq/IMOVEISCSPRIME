@@ -644,6 +644,7 @@ if (formPreAprov) {
                 if (res.ok) {
                     fecharModalPreAprovacao();
                     document.getElementById('modal-sucesso').classList.add('active');
+                    metaPixelTrack('Lead', { content_name: 'pre-aprovacao', status: 'formspree' });
                 } else {
                     let msg = 'Não foi possível enviar. Verifique os campos ou tente mais tarde.';
                     if (data && data.error) {
@@ -690,6 +691,13 @@ document.querySelectorAll('.modal').forEach(modal => {
             else modal.classList.remove('active');
         }
     });
+});
+
+// WhatsApp — evento Contact ao clicar em qualquer link wa.me
+document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    metaPixelTrack('Contact', { content_name: 'whatsapp', content_category: 'click' });
 });
 
 // Inicialização
