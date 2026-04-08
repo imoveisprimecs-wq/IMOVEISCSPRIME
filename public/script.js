@@ -40,6 +40,14 @@ const GOOGLE_FORM_FBZX = '';
 
 const FORMSPREE_FORM_ID = '';
 
+/** Meta Pixel (fbq no index.html): dispara eventos padrão só se o Pixel estiver carregado. */
+function metaPixelTrack(eventName, params) {
+    if (typeof fbq !== 'function') return;
+    try {
+        fbq('track', eventName, params || {});
+    } catch (e) {}
+}
+
 // ============================================================
 // FOTOS DOS EMPREENDIMENTOS
 // Coloque em: assets/empreendimentos/
@@ -624,6 +632,7 @@ if (formPreAprov) {
                 await enviarParaGoogleForm(formPreAprov);
                 fecharModalPreAprovacao();
                 document.getElementById('modal-sucesso').classList.add('active');
+                metaPixelTrack('Lead', { content_name: 'pre-aprovacao', status: 'google_forms' });
             } else {
                 const fd = new FormData(formPreAprov);
                 const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID.trim()}`, {
