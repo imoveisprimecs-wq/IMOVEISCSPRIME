@@ -950,12 +950,6 @@ body {
     color: var(--gray-800);
 }
 
-.card-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
 .card-btn {
     display: block;
     width: 100%;
@@ -975,18 +969,6 @@ body {
 
 .card-btn:hover {
     background: var(--orange-600);
-}
-
-.card-btn--secondary {
-    background: var(--white);
-    color: var(--orange-600);
-    border: 2px solid var(--orange-500);
-    box-sizing: border-box;
-}
-
-.card-btn--secondary:hover {
-    background: var(--orange-50);
-    color: var(--orange-700);
 }
 
 /* Destaques */

@@ -83,7 +83,7 @@ const empreendimentos = [
     { id: 26, nome: 'Alto Chácara Santo Antônio', regiao: 'sul', local: 'Chácara Santo Antônio', dormitorios: 2, status: 'obras', desc: '2 dorms. com varanda | suíte | vaga | rooftop', amenities: ['Pet Place', 'Piscinas', 'Horta', 'Lavanderia'] },
     { id: 27, nome: 'Lyne Campo Limpo', regiao: 'sul', local: 'Campo Limpo', dormitorios: [2, 3], status: 'lancamento', desc: '2 e 3 dorms. com terraço e garagem | Rooftop', amenities: ['Piscinas', 'Rooftop', 'Beauty Care', 'Salão de Jogos'] },
     { id: 28, nome: 'Praça Santo Antônio', regiao: 'sul', local: 'Santo Antônio', dormitorios: 2, status: 'lancamento', desc: '2 dorms. com opção de varanda | lazer completo', amenities: ['Piscina', 'Playground', 'Fitness', 'Salão de Festas'] },
-    // Zona Leste - 9 empreendimentos
+    // Zona Leste - 10 empreendimentos
     { id: 29, nome: 'Novo Mundo Carrão', regiao: 'leste', local: 'Carrão', dormitorios: 2, status: 'lancamento', desc: '2 dorms. com opção de terraço | lazer completo', amenities: ['Piscina', 'Fitness', 'Playground', 'Salão de Festas'] },
     { id: 30, nome: 'Modern Mooca', regiao: 'leste', local: 'Mooca', dormitorios: [2, 3], status: 'lancamento', desc: '2 e 3 dorms. com suíte | varanda | lazer completo', amenities: ['Rooftop', 'Fitness', 'Piscinas', 'Espaço Beleza'] },
     { id: 31, nome: 'Dez Belenzinho', regiao: 'leste', local: 'Belém', dormitorios: [1, 2], status: 'obras', desc: 'Studio e 2 dorms. com suíte e terraço', amenities: ['Piscinas', 'Mini Quadra', 'Fitness Externo', 'Bicicletário'] },
@@ -93,6 +93,7 @@ const empreendimentos = [
     { id: 37, nome: 'Mood Vila Matilde · Holos', regiao: 'leste', local: 'Vila Matilde · Rua Dr. Heládio', dormitorios: [1, 2], status: 'lancamento', desc: '1 e 2 dorms. com varanda | 28,98m² a 74,68m² | MCMV · sucesso de vendas | a 5 min da estação Vila Matilde (Linha 3)', amenities: ['Piscinas', 'Academia', 'Pet Place', 'Coworking'] },
     { id: 38, nome: 'Zoom Parque Ecológico · Holos', regiao: 'leste', local: 'Vila Silvia · Lauro de Freitas x São José Ribamar', dormitorios: 2, status: 'lancamento', desc: '2 dorms. com varanda | 35,51m² a 86,83m² | MCMV · breve lançamento | a 1 min da Av. Dr. Assis Ribeiro | próx. Parque Ecológico do Tietê', amenities: ['Piscinas', 'Academia', 'Pet Place', 'Mercadinho'] },
     { id: 39, nome: 'DOMO Jardim Penha', regiao: 'leste', local: 'Jardim Penha · Rua Monsenhor Meirelles, 249', dormitorios: 2, status: 'lancamento', desc: '2 dorms. · 30m² a 42,80m² | Domo Empreendimentos · rooftop, piscina e lazer completo', amenities: ['Piscina', 'Rooftop', 'Pet Place', 'Salão de Festas'] },
+    { id: 40, nome: 'Serena Residence · Emccamp', regiao: 'leste', local: 'Vila Sílvia · R. Nova Itarana, 11', dormitorios: 2, status: 'obras', desc: '2 dorms. · 40–41m² | Emccamp · varanda com ponto grill, opção de vaga | MCMV · próx. Parque Ecológico do Tietê e metrô', amenities: ['Piscina', 'Academia', 'Pet Place', 'Salão de Festas'] },
     // Guarulhos - 2 empreendimentos
     { id: 34, nome: 'Mérito Guarulhos', regiao: 'guarulhos', local: 'Ponte Grande', dormitorios: 2, status: 'lancamento', desc: '2 dorms. com garden | terraço | lazer completo', amenities: ['Churrasqueira', 'Piscinas', 'Beach Tênis', 'Piquenique'] },
     { id: 35, nome: 'Next Guarulhos', regiao: 'guarulhos', local: 'Guarulhos', dormitorios: 2, status: 'lancamento', desc: '2 dorms. com opção de terraço | lazer completo', amenities: ['Piscina', 'Fitness', 'Playground', 'Churrasqueira'] }
@@ -122,9 +123,6 @@ function renderizarCard(e) {
     const zonaNome = getZonaNome(e.regiao);
     const amenitiesHtml = e.amenities.slice(0, 4).map(a => `<span>${a}</span>`).join('');
     const imgUrl = e.imagem || getImagemEmpreendimento(e.id);
-    const siteBtn = e.site
-        ? `<a href="${e.site}" class="card-btn card-btn--secondary" target="_blank" rel="noopener noreferrer">Ver projeto no site</a>`
-        : '';
     return `
         <article class="empreendimento-card" data-regiao="${e.regiao}" data-dorms="${Array.isArray(e.dormitorios) ? Math.min(...e.dormitorios) : e.dormitorios}">
             <div class="card-image">
@@ -137,10 +135,7 @@ function renderizarCard(e) {
                 <p class="card-location">${e.local}</p>
                 <p class="card-desc">${e.desc}</p>
                 <div class="card-amenities">${amenitiesHtml}</div>
-                <div class="card-actions">
-                ${siteBtn}
                 <button type="button" class="card-btn js-open-pre-aprovacao" data-origem="card" data-empreendimento="${encodeURIComponent(e.nome)}">Tenho interesse</button>
-                </div>
             </div>
         </article>
     `;
